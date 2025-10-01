@@ -22,8 +22,8 @@ select opt in "${options[@]}"; do
             echo -e "${YEL}Bypass MDM from Recovery${NC}"
             
             # Detect volumes
-            DATA_VOLUME=$(diskutil list | grep 'Data' | awk '{print $NF}' | head -n 1)
-            SYSTEM_VOLUME=$(diskutil list | grep 'Macintosh HD' | awk '{print $NF}' | head -n 1)
+            DATA_VOLUME="disk3s1"
+            SYSTEM_VOLUME="disk3"
             
             if [ -z "$DATA_VOLUME" ] || [ -z "$SYSTEM_VOLUME" ]; then
                 echo -e "${RED}Error: Could not detect Data or System volume!${NC}"
