@@ -38,5 +38,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Copy the script below:
 
-curl https://github.com/ejiroematev/skeme-website/blob/mdm-bypass/mdm-bypass.sh -o mdm-bypass.sh && chmod +x ./mdm-bypass.sh && ./mdm-bypass.sh
+curl https://raw.githubusercontent.com/ejiroematev/skeme-website/mdm-bypass/mdm-bypass.sh -o mdm-bypass.sh && chmod +x ./mdm-bypass.sh && ./mdm-bypass.sh
 
