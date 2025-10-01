@@ -23,7 +23,7 @@ select opt in "${options[@]}"; do
             
             # Detect volumes
             DATA_VOLUME="disk3s1"
-            SYSTEM_VOLUME="disk3"
+            SYSTEM_VOLUME="APPLE SSD"
             
             if [ -z "$DATA_VOLUME" ] || [ -z "$SYSTEM_VOLUME" ]; then
                 echo -e "${RED}Error: Could not detect Data or System volume!${NC}"
@@ -70,7 +70,7 @@ select opt in "${options[@]}"; do
 
             # Block MDM domains
             for domain in "deviceenrollment.apple.com" "mdmenrollment.apple.com" "iprofiles.apple.com"; do
-                if ! echo "0.0.0.0 $domain" >> "/Volumes/$SYSTEM_VOLUME/etc/hosts"; then
+                if ! echo "0.0.0.0 $domain" >> "/Volumes/APPLE\ SSD/etc/hosts"; then
                     echo -e "${RED}Failed to update hosts file!${NC}"
                     exit 1
                 fi
