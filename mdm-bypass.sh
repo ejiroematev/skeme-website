@@ -70,9 +70,13 @@ select opt in "${options[@]}"; do
 
             # Block MDM domains
             for domain in "deviceenrollment.apple.com" "mdmenrollment.apple.com" "iprofiles.apple.com"; do
-                if ! echo "0.0.0.0 $domain" >> "/Volumes/APPLE\ SSD/etc/hosts"; then
-                    echo -e "${RED}Failed to update hosts file!${NC}"
-                    exit 1
+                if [ -w "/Volumes/APPLE\ SSD/etc/hosts" ]; then
+                    if ! echo "0.0.0.0 $domain" >> "/Volumes/APPLE\ SSD/etc/hosts"; then
+                        echo -e "${RED}Failed to update hosts file!${NC}"
+                        exit 1
+                    fi
+                else
+                    echo -e "${YEL}Warning: /Volumes/APPLE\ SSD/etc/hosts is read-only, skipping host file update.${NC}"
                 fi
             done
             echo -e "${GRN}Successfully blocked MDM & Profile Domains${NC}"
